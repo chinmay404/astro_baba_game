@@ -1,232 +1,144 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrologist Game - User Information Form</title>
-
-    <!-- Link to Google Fonts for Cosmic Theme -->
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Link to Animate.css for Animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <!-- Custom CSS -->
+    <title>Form and Video Layout</title>
     <style>
-        body {
+        body, html {
             margin: 0;
-            font-family: 'Space Mono', monospace;
-            background-color: #121212; /* Dark background */
-            color: #ddd;
-            text-align: center;
-            overflow: hidden;
-            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Dark textured background */
-            background-size: cover;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        h2 {
-            font-family: 'Abril Fatface', cursive;
-            color: #f0f0f0;
-            margin-top: 50px;
-            font-size: 2.5em;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px;
+            box-sizing: border-box;
         }
 
-        form {
-            margin-top: 20px;
-            padding: 30px;
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1); /* More transparent for a glassy effect */
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-            backdrop-filter: blur(20px);
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            width: 300px;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for glass effect */
+        /* Left Side - Form */
+        .form-container {
+            flex: 1;
+            padding-right: 50px;
         }
 
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-size: 1.2em;
-            color: #ddd;
+        .form-container h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        input[type="text"],
-        input[type="date"],
-        select {
+        .form-container p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .form-container input, .form-container select {
+            margin-bottom: 20px;
             padding: 10px;
-            width: 100%;
-            border: none;
+            font-size: 1rem;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 15px;
-            background: rgba(255, 255, 255, 0.2); /* Transparent input fields */
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-            font-size: 1em;
-            color: #fff;
-            backdrop-filter: blur(5px);
+            box-sizing: border-box;
+            width: 100%;
         }
 
-        input[type="submit"] {
-            padding: 10px 20px;
-            background: #3498db;
-            border: none;
-            border-radius: 5px;
+        .form-container input:focus, .form-container select:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #000;
             color: #fff;
-            font-size: 1.1em;
             cursor: pointer;
-            transition: background 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            width: auto;
         }
 
-        input[type="submit"]:hover {
-            background: #2980b9;
+        .form-container input[type="submit"]:hover {
+            background-color: #444;
+        }
+
+        /* Right Side - Video */
+        .video-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container video {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
-
-    <!-- Particles.js Script for Starry Background -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
-
 <body>
-    <!-- Container for Particles.js Background -->
-    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
 
-    <form action="/submit" method="post" class="animate__animated animate__fadeInUp">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="container">
+        <!-- Left Side Form and Text -->
+        <div class="form-container">
+            <h1>No Surprises</h1>
+            <p>No interest, no upfront payment, and no hidden fees or conditions.</p>
 
-        <label for="date_of_birth">Date of Birth:</label>
-        <input type="date" id="date_of_birth" name="date_of_birth" required>
+            <form action="/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-        <label for="birthplace">Birthplace:</label>
-        <input type="text" id="birthplace" name="birthplace" required>
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" required>
 
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select>
+                <label for="birthplace">Birthplace:</label>
+                <input type="text" id="birthplace" name="birthplace" required>
 
-        <input type="submit" value="Submit">
-    </form>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
 
-    <!-- Initialize Particles.js -->
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 100,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff" /* White particles for better contrast on dark background */
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff", /* White lines for better contrast */
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <!-- Right Side Video -->
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="vector_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
 </body>
-
-</html>
+</html> -->
